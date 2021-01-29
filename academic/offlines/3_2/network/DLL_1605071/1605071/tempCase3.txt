@@ -1,0 +1,32 @@
+Enter the number of packets to simulate: 2
+Enter  frame loss probability [enter 0.0 for no loss]:0
+Enter frame corruption probability [0.0 for no corruption]:0.5
+Enter average time between packets from sender's layer3 [ > 0.0]:500
+Enter generator polynomial: 1011
+CRC steps: 0
+Enter TRACE:1
+
+in A_output ; Sending aaa
+          TOlayer1: frame being corrupted
+in B_input ; sending NACK for corrupted payload Zaa
+in A_timerinterrupt ; Re-sending global-> aaa
+          TOlayer1: frame being corrupted
+in B_input ; sending NACK for corrupted payload aaa
+          TOlayer1: frame being corrupted
+in A_timerinterrupt ; Re-sending global-> aaa
+          TOlayer1: frame being corrupted
+in B_input ; sending NACK for corrupted payload Zaa
+in A_timerinterrupt ; Re-sending global-> aaa
+in B_input ; received correctly and trying to piggyback ack for payload aaa
+in A_timerinterrupt ; Re-sending global-> aaa
+          TOlayer1: frame being corrupted
+in B_input ; sending NACK for corrupted payload Zaa
+in A_input ; got ACK
+
+in A_output ; Sending bbb
+in B_input ; received correctly and trying to piggyback ack for payload bbb
+in A_timerinterrupt ; Re-sending global-> bbb
+in B_input ; sending again_ACK for duplicate frame; payload bbb
+in A_input ; got ACK
+ Simulator terminated at time 1867.942871
+ after sending 2 pkts from layer3

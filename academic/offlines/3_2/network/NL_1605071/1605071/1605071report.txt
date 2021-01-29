@@ -1,0 +1,36 @@
+Lambda	|	Avg. number of Hops	|	Drop Rate
+-------------------------------------------------------------
+0.01	|	3.367			|	36.3
+-------------------------------------------------------------
+0.05	|	3.413			|	35.7
+-------------------------------------------------------------
+0.1	|	2.641			|	31.5
+-------------------------------------------------------------
+0.25	|	3.895			|	48.5
+-------------------------------------------------------------
+0.5	|	3.649			|	50.6
+-------------------------------------------------------------
+0.8	|	2.0			|	53.4
+-------------------------------------------------------------
+
+
+
+
+
+
+-----------------------------------------------
+	|		Drop Rate
+-----------------------------------------------
+Lambda	|	Simple DVR	|	DVR
+-----------------------------------------------
+0.1	|	54.8		|	31.5
+-----------------------------------------------
+
+
+
+Reasoning:
+-----------
+
+Simple DVR never updates distance if it doesn't get shorter distance than before. So if any router gets down, in simple DVR another long distance, yet working path is hard to find, and packets tend to forward through the previous path even if it is down. In a word, the bad news propagates slowly so pakcets drop more.
+
+On the other hand, DVR uses split horizon and forced update. So bad news propagates faster and the down route gets updated to infinity, as a result packets find another route to forward and thus tend to drop less. 

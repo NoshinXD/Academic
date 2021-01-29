@@ -1,0 +1,16 @@
+A
+Circle
+300
+B
+Square
+150
+C
+Rectangle
+200
+150
+A
+Triangle
+500
+300
+400
+break
